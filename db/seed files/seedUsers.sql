@@ -2,8 +2,8 @@
 
 CREATE TABLE users {
   user_id SERIAL PRIMARY KEY,
-  firstname VARCHAR(50),
-  lastname VARCHAR(50),
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
   email VARCHAR(75)
 };
 
