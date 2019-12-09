@@ -1,4 +1,4 @@
--- // USERS // --
+-- // USER INFO // --
 
 CREATE TABLE users {
   user_id SERIAL PRIMARY KEY,
@@ -26,4 +26,20 @@ INSERT INTO user_login (email, hash_password)
 VALUES (
   'ca@seemail.com',
   'password'
+);
+
+-- // USER SAVED LINKS // --
+
+CREATE TABLE links {
+  link_id SERIAL PRIMARY KEY
+  original_link TEXT,
+  shortened_link TEXT,
+  user_id INTEGER REFERENCES users
+};
+
+INSERT INTO links (original_link, shortened_link, user_id)
+VALUES (
+  'https://www.jello.com',
+  'https://jello-short',
+  1
 );
