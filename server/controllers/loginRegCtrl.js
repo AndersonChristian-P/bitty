@@ -9,6 +9,11 @@ module.exports = {
       .then(results => {
         res.status(200).send(results);
       });
+  },
+
+  logout: (req, res) => {
+    req.session.destroy();
+    res.sendStatus(200);
   }
 
 };
