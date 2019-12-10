@@ -4,6 +4,7 @@ const app = express();
 const massive = require('massive');
 const session = require('express-session');
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
+const loginRegCtrl = require('./controllers/loginRegCtrl')
 
 // -- MIDDLEWARE -- //
 
@@ -33,6 +34,6 @@ massive(CONNECTION_STRING).then((database) => {
 // -- ENDPOINTS -- //
 
 // Authentication
-
+app.get('/api/users', loginRegCtrl.getUsers);
 
 // User Saved Links
