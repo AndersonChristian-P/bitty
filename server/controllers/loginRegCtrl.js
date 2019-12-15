@@ -11,7 +11,7 @@ module.exports = {
       });
   },
 
-  register: (req, res) => {
+  register: async (req, res) => {
     const db = req.app.get('db');
     const { firstname, lastname, email, password: userPass } = req.body;
     // const { session } = req;
@@ -37,6 +37,8 @@ module.exports = {
     //   email,
     //   user_id: user[0].login_id
     // }
+    // need to figure out if we even need this on session when user registers
+    // If a user registers shouldn't we push the same info as if the user logged in? 
 
     res.status(200).send({
       authenticated: true,
@@ -47,6 +49,22 @@ module.exports = {
     })
 
   },
+
+  // login: async (req, res) => {
+  //   const db = req.app.get("db")
+  //   const { session } = req
+  //   const { loginEmail: email, loginPassword } = req.body
+
+  //   try {
+
+  //     let user = await db.login({ email });
+
+  //   } catch err {
+  //     res.sendStatus(401)
+  //   }
+
+
+  // },
 
   logout: (req, res) => {
     req.session.destroy();
