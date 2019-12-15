@@ -13,8 +13,8 @@ module.exports = {
 
   register: async (req, res) => {
     const db = req.app.get('db');
-    const { firstname, lastname, email, password: userPass } = req.body;
-    // const { session } = req;
+    const { first_name, last_name, email, password: userPass } = req.body;
+    // const { session } = req; 
 
     let emailTaken = await db.checkEmail({ email });
     emailTaken = +emailTaken[0].count;
@@ -27,8 +27,8 @@ module.exports = {
     const hash_pass = bcrypt.hashSync(userPass, salt);
 
     const user = await db.registerUser({
-      firstname,
-      lastname,
+      first_name,
+      last_name,
       email,
       hash_pass
     })
@@ -43,8 +43,8 @@ module.exports = {
     res.status(200).send({
       authenticated: true,
       email: user[0].email,
-      firstname: user[0].firstname,
-      lastname: user[0].lastname,
+      first_name: user[0].first_name,
+      last_name: user[0].last_name,
       user_id: user[0].login_id
     })
 

@@ -35,6 +35,7 @@ massive(CONNECTION_STRING).then((database) => {
 
 // Authentication
 app.get('/api/users', loginRegCtrl.getUsers);
+app.post("/auth/register", loginRegCtrl.register);
 app.get('/auth/logout', loginRegCtrl.logout);
 
 // User Saved Links

@@ -4,16 +4,16 @@ VALUES (
   ${hash_pass}
 );
 
-INSERT INTO users (firstname, lastname, email)
+INSERT INTO users (first_name, last_name, email)
 VALUES (
-  ${firstname},
-  ${lastname},
+  ${first_name},
+  ${last_name},
   ${email}
 );
 
 -- return email, firstname, lastname, and login_id as part as a response
-SELECT ul.email, firstname, lastname, login_id
+SELECT ul.email, first_name, last_name, login_id
 FROM user_login ul
 JOIN users u
-ON ul.email = e.email
+ON ul.email = u.email
 WHERE u.email = ${email};
