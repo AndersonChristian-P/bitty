@@ -50,21 +50,40 @@ module.exports = {
 
   },
 
-  // login: async (req, res) => {
-  //   const db = req.app.get("db")
-  //   const { session } = req
-  //   const { loginEmail: email, loginPassword } = req.body
+  login: async (req, res) => {
+    const db = req.app.get("db")
+    // const { session } = req
+    const { loginEmail: email, loginPassword: password } = req.body
 
-  //   try {
+    try {
+      let user = await db.login({ email });
 
-  //     let user = await db.login({ email });
+      const authenticated = bcrypt.compareSync(password, user[0].hash_password)
 
-  //   } catch err {
-  //     res.sendStatus(401)
-  //   }
+      if (authenticated) {
+        res.status(200).send({
+          authenticated: true,
+          user_id: user[0].user_id,
+          first_name: user[0].first_name,
+          last_name: user[0].last_name,
+          email: user[0].email
+        })
 
+        // session.user = {
+        //   authenticated: true,
+        //   user_id: user[0].user_id,
+        //   first_name: user[0].first_name,
+        //   last_name: user[0].last_name,
+        //   email: user[0].email
+        // }
+      } else {
+        throw new Error(401);
+      }
 
-  // },
+    } catch (err) {
+      res.sendStatus(401)
+    }
+  },
 
   logout: (req, res) => {
     req.session.destroy();
