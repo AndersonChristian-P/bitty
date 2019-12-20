@@ -1,0 +1,25 @@
+// --FONTS
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans:400,400i|Tinos:400,400i,700,700i');
+
+// --SNIPPETS
+@import './components/Header/Header';
+@import './components/Home/Home';
+@import './components/Footer/Footer';
+
+// --RESET CODE
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// BASE SETUP
+
+body {
+  font-size: 1em;
+  line-height: 1.5em;
+  text-rendering: optimizeLegibility;
+  padding: 0 10px;
+  color: #231f20;
+}
