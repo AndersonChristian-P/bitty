@@ -6,7 +6,6 @@ footer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   height: 170px;
   font-size: .87em;
@@ -14,6 +13,13 @@ footer {
     border: 1px solid red;
     width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .resources {
+    border: 1px solid blue;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

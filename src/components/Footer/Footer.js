@@ -9,7 +9,13 @@ const Footer = () => {
           <h3>Sign up for our newsletter</h3>
 
           <div className="newsletter-input">
-            placeholder for email input
+            <input
+              type="text"
+              placeholder=""
+            // value={}
+            // onChange={}
+            />
+
             <button>
               Submit
             </button>
@@ -17,6 +23,10 @@ const Footer = () => {
 
           <p>It will inspire you.</p>
 
+        </div>
+
+        <div className="resources">
+          links, social, T&C, etc
         </div>
 
       </footer>
