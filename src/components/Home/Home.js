@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ShortenTool from "../ShortenTool/ShortenTool"
 
 class Home extends Component {
 
@@ -10,6 +11,7 @@ class Home extends Component {
     return (
       <div>
         Jello!!!!!
+        <ShortenTool />
       </div>
     )
   }
